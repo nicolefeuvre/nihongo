@@ -711,13 +711,14 @@ function completeLesson(score, total) {
     state.progress.lastActiveDate = today;
   }
 
-  // Unlock next
-  if (passed && !wasCompleted) {
+    // Unlock next
+  if (passed) {
     const nextId = getNextLessonId(lessonId);
     if (nextId && !state.progress.unlockedLessons.includes(nextId)) {
       state.progress.unlockedLessons.push(nextId);
     }
   }
+  
 
   saveProgress(state.progress);
 
